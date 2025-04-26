@@ -1,0 +1,41 @@
+@prefix : <http://example.org/kinship#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Declaración de la Ontología
+<http://example.org/kinship> rdf:type owl:Ontology ;
+    owl:imports <http://schema.org/> ; # Importamos schema.org para reusar sus términos
+    rdfs:comment "Una ontología simple para relaciones de parentesco usando Schema.org."@es .
+
+# Definición de la Clase Persona
+# La hacemos equivalente a schema:Person para integrar con el vocabulario existente.
+:Person rdf:type owl:Class ;
+    owl:equivalentClass schema:Person ;
+    rdfs:label "Persona"@es ;
+    rdfs:comment "Representa a una persona en el grafo de parentesco."@es .
+
+# Propiedades de Parentesco (Usando las de Schema.org)
+# No necesitamos redefinirlas, solo saber que existen y podemos usarlas.
+# schema:parent (Dominio: Person, Rango: Person)
+# schema:children (Dominio: Person, Rango: Person)
+# schema:sibling (Dominio: Person, Rango: Person)
+# schema:spouse (Dominio: Person, Rango: Person)
+
+# Podríamos añadir subpropiedades si necesitáramos más especificidad, por ejemplo:
+:hasMother rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf schema:parent ;
+    rdfs:label "tiene Madre"@es ;
+    rdfs:domain :Person ;
+    rdfs:range :Person . # Podríamos restringir más el rango si tuviéramos una clase :Woman
+
+:hasFather rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf schema:parent ;
+    rdfs:label "tiene Padre"@es ;
+    rdfs:domain :Person ;
+    rdfs:range :Person . # Podríamos restringir más el rango si tuviéramos una clase :Man
+
+# También podríamos definir inversas si fuera necesario
+# schema:parent owl:inverseOf schema:children . # Schema.org ya puede tener esto definido

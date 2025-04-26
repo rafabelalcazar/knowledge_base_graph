@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/kinship#"
+     xml:base="http://example.org/kinship"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:schema="http://schema.org/">
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Ontology: http://example.org/kinship (Generated from Turtle)
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Ontology rdf:about="http://example.org/kinship">
+        <owl:imports rdf:resource="http://schema.org/"/>
+        <rdfs:comment xml:lang="es">Una ontología simple para relaciones de parentesco usando Schema.org.</rdfs:comment>
+    </owl:Ontology>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://example.org/kinship#hasFather -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/kinship#hasFather">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/parent"/>
+        <rdfs:domain rdf:resource="http://example.org/kinship#Person"/>
+        <rdfs:range rdf:resource="http://example.org/kinship#Person"/>
+        <rdfs:label xml:lang="es">tiene Padre</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- http://example.org/kinship#hasMother -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/kinship#hasMother">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/parent"/>
+        <rdfs:domain rdf:resource="http://example.org/kinship#Person"/>
+        <rdfs:range rdf:resource="http://example.org/kinship#Person"/>
+        <rdfs:label xml:lang="es">tiene Madre</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- http://schema.org/children -->
+
+    <!-- La propiedad schema:children ya está definida en schema.org, solo la referenciamos -->
+    <owl:ObjectProperty rdf:about="http://schema.org/children"/>
+
+    <!-- http://schema.org/parent -->
+
+    <!-- La propiedad schema:parent ya está definida en schema.org, solo la referenciamos -->
+    <owl:ObjectProperty rdf:about="http://schema.org/parent"/>
+
+    <!-- http://schema.org/sibling -->
+
+    <!-- La propiedad schema:sibling ya está definida en schema.org, solo la referenciamos -->
+    <owl:ObjectProperty rdf:about="http://schema.org/sibling"/>
+
+    <!-- http://schema.org/spouse -->
+
+    <!-- La propiedad schema:spouse ya está definida en schema.org, solo la referenciamos -->
+    <owl:ObjectProperty rdf:about="http://schema.org/spouse"/>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://example.org/kinship#Person -->
+
+    <owl:Class rdf:about="http://example.org/kinship#Person">
+        <owl:equivalentClass rdf:resource="http://schema.org/Person"/>
+        <rdfs:label xml:lang="es">Persona</rdfs:label>
+        <rdfs:comment xml:lang="es">Representa a una persona en el grafo de parentesco.</rdfs:comment>
+    </owl:Class>
+
+    <!-- http://schema.org/Person -->
+
+    <!-- La clase schema:Person ya está definida en schema.org, solo la referenciamos -->
+    <owl:Class rdf:about="http://schema.org/Person"/>
+
+</rdf:RDF>

@@ -1,0 +1,40 @@
+@prefix : <http://example.org/kinship#> .
+@prefix data: <http://example.org/data#> . # Prefijo para nuestros individuos
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Individuos (Personas)
+data:juan rdf:type :Person ;
+    schema:name "Juan Pérez" ;
+    schema:children data:ana , data:luis . # Juan es padre de Ana y Luis
+
+data:maria rdf:type :Person ;
+    schema:name "María García" ;
+    schema:children data:ana , data:luis ; # María es madre de Ana y Luis
+    schema:spouse data:juan .           # María es esposa de Juan
+
+data:ana rdf:type :Person ;
+    schema:name "Ana Pérez" ;
+    schema:parent data:juan , data:maria ; # Ana es hija de Juan y María
+    schema:sibling data:luis .           # Ana es hermana de Luis
+
+data:luis rdf:type :Person ;
+    schema:name "Luis Pérez" ;
+    schema:parent data:juan , data:maria ; # Luis es hijo de Juan y María
+    schema:sibling data:ana .           # Luis es hermano de Ana
+
+data:alex rdf:type :Person ;
+    schema:name "Alex Pérez" ;
+    schema:parent data:juan , data:maria ; # Luis es hijo de Juan y María
+    schema:sibling data:luis .           # Alex es hermano de Luis
+
+# Estableciendo la relación inversa de esposo/a
+data:juan schema:spouse data:maria .
+
+# Usando las subpropiedades definidas (opcional)
+data:ana :hasFather data:juan ;
+         :hasMother data:maria .
+
+data:luis :hasFather data:juan ;
+         :hasMother data:maria .
